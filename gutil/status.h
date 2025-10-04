@@ -27,7 +27,6 @@
 #include "absl/strings/str_cat.h"
 #include "absl/strings/string_view.h"
 #include "absl/types/optional.h"
-#include "grpcpp/grpcpp.h"
 
 namespace gutil {
 
@@ -75,10 +74,6 @@ StreamableStatusOrProxy<T> StreamableStatusOr(
     const absl::StatusOr<T>& status_or) {
   return StreamableStatusOrProxy<T>(status_or);
 }
-
-// Convert between gRPC and Abseil statuses.
-grpc::Status AbslStatusToGrpcStatus(const absl::Status& status);
-absl::Status GrpcStatusToAbslStatus(const grpc::Status& status);
 
 // StatusBuilder facilitates easier construction of Status objects with streamed
 // message building.
